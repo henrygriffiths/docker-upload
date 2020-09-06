@@ -1,13 +1,13 @@
 import os
 import subprocess
 
-path = str(input('Enter path: '))
+path = str(input('Enter path: ')).strip().rstrip('/')
 if os.path.exists(path):
     os.chdir(path)
-    version = str(input('Enter version number: '))
-    repository_url = str(input('Enter repository url: '))
-    project_name = str(input('Enter project name: '))
-    image_name = str(input('Enter image name: '))
+    version = str(input('Enter version number: ')).strip()
+    repository_url = str(input('Enter repository url: ')).strip().rstrip('/')
+    project_name = str(input('Enter project name: ')).strip()
+    image_name = str(input('Enter image name: ')).strip()
     print('Creating tag with version: ' + str(version))
     subprocess.run(['git', 'tag', version])
     print('Pushing tag to git')
